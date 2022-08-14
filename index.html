@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Figure resembling a great man V1.0</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="style.css" />
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-62f903fe5d9dcb86"></script>
+</head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light nav-distance">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">위인상 테스트</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled">Disabled</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <center>
+        <img src="icon/kogu.png" alt="My Image" width="100" height="100">
+        <img src="icon/baekje.png" alt="My Image" width="100" height="100">
+        <img src="icon/silla.png" alt="My Image" width="100" height="100">
+        </center>
+        <section class="section">
+            <h1 class="title">한국 고대위인 닮은꼴 테스트</h1>
+            <h2 class="subtitle">나는 어떤 한국 고대위인을 닮았을까?</h2>
+            <h2 class="subtitle">(내가 왕이될 상인가요?)</h2>
+            <h5 class="subtitle"><font color = "red"> 주의! 남녀구분이 없습니다.(헬멧착용 추천)</font></h5>
+<br>
+    <center>
+            <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                <div class="addthis_inline_share_toolbox"></div>    
+    </center>
+        </section>
+        <section class="youtube">
+            <div class="mt-5 youtube-cover d-flex flex-row-reverse">
+                <img src="img/pngegg1.png" alt="" class="youtube-icon"/>
+                <a href="https://www.youtube.com/channel/UC_moWI0VunMjreRxYaPxZtw"class="youtube-link">By SeciFather YouTube</a>
+            </div>
+        </section>
+        <script
+            class="jsbin"
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+        ></script>
+        <div class="container file-upload">
+            <div class="image-upload-wrap">
+                <input
+                    class="file-upload-input"
+                    type="file"
+                    onchange="readURL(this);"
+                    accept="image/*"
+                />
+                <div class="drag-text">
+                    <img src="icon/frame1-1.png" class="mt-5 pt-5 upload" />
+                    <h3 class="mb-5 pb-5 pt-4 upload-text">
+                        얼굴 사진을 드래그하거나 클릭하여 사진을 업로드하세요!!
+                    </h3>
+                </div>
+            </div>
+            <div class="file-upload-content">
+                <img class="file-upload-image" id="face-image" src="#" alt="your image" />
+                <div class="image-title-wrap">
+                    <button type="button" onclick="removeUpload()" class="remove-image">
+                        Remove <span class="image-title">Uploaded Image</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="webcam-container"></div>
+        <div id="label-container"></div>
+        <div id="disqus_thread"></div>
+        <script>
+            
+            /**
+             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+            /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+            (function () {
+                // DON'T EDIT BELOW THIS LINE
+                var d = document,
+                    s = d.createElement('script');
+                s.src = 'https://secifather.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript
+            >Please enable JavaScript to view the
+            <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript
+        >
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+        <script type="text/javascript">
+            // More API functions here:
+            // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+
+            // the link to your model provided by Teachable Machine export panel
+            const URL = 'https://teachablemachine.withgoogle.com/models/mIxzC89Rn/';
+
+            let model, webcam, labelContainer, maxPredictions;
+
+            // Load the image model and setup the webcam
+            async function init() {
+                const modelURL = URL + 'model.json';
+                const metadataURL = URL + 'metadata.json';
+
+                // load the model and metadata
+                // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+                // or files from your local hard drive
+                // Note: the pose library adds "tmImage" object to your window (window.tmImage)
+                model = await tmImage.load(modelURL, metadataURL);
+                maxPredictions = model.getTotalClasses();
+
+                // append elements to the DOM
+                labelContainer = document.getElementById('label-container');
+                for (let i = 0; i < maxPredictions; i++) {
+                    // and class labels
+                    labelContainer.appendChild(document.createElement('div'));
+                }
+            }
+
+            // run the webcam image through the image model
+            async function predict() {
+                // predict can take in an image, video or canvas html element
+                var image = document.getElementById('face-image');
+                const prediction = await model.predict(image, false);
+                for (let i = 0; i < maxPredictions; i++) {
+                    const classPrediction =
+                    prediction[i].className + ': ' + prediction[i].probability.toFixed(2);
+                    labelContainer.childNodes[i].innerHTML = classPrediction;
+              }
+                  if (prediction[0].className == '단군' && prediction[0].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/dangun.html";
+                } else if (prediction[1].className == '금와왕' && prediction[1].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/gumwa.html";
+                } else if (prediction[2].className == '대소' && prediction[2].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/daeso.html";
+                } else if (prediction[3].className == '해모수' && prediction[3].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/haemo.html";
+                } else if (prediction[4].className == '산상왕' && prediction[4].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/sangsan.html";
+                } else if (prediction[5].className == '서천왕' && prediction[5].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/sejeon.html";
+                } else if (prediction[6].className == '고국양왕' && prediction[6].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/kokukyan.html";
+                } else if (prediction[7].className == '고국원왕' && prediction[7].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/kokukwon.html";
+                } else if (prediction[8].className == '고국천왕' && prediction[8].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/kokukjeon.html";
+                } else if (prediction[9].className == '광개토대왕' && prediction[9].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/kangke.html";
+                } else if (prediction[10].className == '대무신왕' && prediction[10].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/daemu.html";
+                } else if (prediction[11].className == '동명성왕' && prediction[11].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/dongmyun.html";
+                } else if (prediction[12].className == '동천왕' && prediction[12].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/dongkun.html";
+                } else if (prediction[13].className == '유리왕' && prediction[13].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/yunli.html";
+                } else if (prediction[14].className == '양원왕' && prediction[14].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/yangwon.html";
+                } else if (prediction[15].className == '연개소문' && prediction[15].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/yeonke.html";
+                } else if (prediction[16].className == '양만춘' && prediction[16].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/yangman.html";
+                } else if (prediction[17].className == '왕산악' && prediction[17].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/wangsan.html";
+                } else if (prediction[18].className == '을지문덕' && prediction[18].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/ulsi.html";
+                } else if (prediction[19].className == '장수왕' && prediction[19].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/jangsu.html";
+                } else if (prediction[20].className == '호동왕자' && prediction[20].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/hodong.html";
+                } else if (prediction[21].className == '소수림왕' && prediction[21].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/sosu.html";
+                } else if (prediction[22].className == '개로왕' && prediction[22].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/kero.html";
+                 } else if (prediction[23].className == '개루왕' && prediction[23].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/keru.html";
+                }   else if (prediction[24].className == "계백" && prediction[24].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/keback.html";
+                }   else if (prediction[25].className == "계왕" && prediction[25].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/kewang.html";
+                }   else if (prediction[26].className == "고이왕" && prediction[26].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/koii.html";
+                }   else if (prediction[27].className == "구수왕" && prediction[27].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/kusu.html";
+                }   else if (prediction[28].className == "근초고왕" && prediction[28].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/kuncho.html";
+                }   else if (prediction[29].className == "동성왕" && prediction[29].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/dongsung.html";
+                }   else if (prediction[30].className == "무녕왕" && prediction[30].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/muyoung.html";
+                }   else if (prediction[31].className == "문주왕" && prediction[31].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/munsu.html";
+                }   else if (prediction[32].className == "법왕" && prediction[32].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/bunwang.html";
+                }   else if (prediction[33].className == "비류왕" && prediction[33].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/biryu.html";
+                }   else if (prediction[34].className == "성왕" && prediction[34].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/sungwang.html";
+                }   else if (prediction[35].className == "온조왕" && prediction[35].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/oncho.html";
+                }   else if (prediction[36].className == "의자왕" && prediction[36].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/woja.html";
+                }   else if (prediction[37].className == "흑지상지" && prediction[37].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/bjisang.html";
+                }   else if (prediction[38].className == "거칠부" && prediction[38].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/gujil.html";
+                }   else if (prediction[39].className == "관창" && prediction[39].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/ganchang.html";
+                }   else if (prediction[40].className == "김알지" && prediction[40].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/alji.html";
+                }   else if (prediction[41].className == "김유신" && prediction[41].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/yousin.html";
+                }   else if (prediction[42].className == "법흥왕" && prediction[42].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/rowwang.html";
+                }   else if (prediction[43].className == "설총" && prediction[43].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/sulchon.html";
+                }   else if (prediction[44].className == "알천" && prediction[44].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/alchun.html";
+                }   else if (prediction[45].className == "이사부" && prediction[45].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/leesabu.html";
+                }   else if (prediction[46].className == "이차돈" && prediction[46].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/leecha.html";
+                }   else if (prediction[47].className == "지증왕" && prediction[47].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/jiguwa.html";
+                }   else if (prediction[48].className == "진지왕" && prediction[48].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/jingi.html";
+                }   else if (prediction[49].className == "진평왕" && prediction[49].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/jinpy.html";
+                }   else if (prediction[50].className == "진흥왕" && prediction[50].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/jinhu.html";
+                }   else if (prediction[51].className == "최치원" && prediction[51].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/choichi.html";
+                }   else if (prediction[52].className == "태종무열왕" && prediction[52].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/taechong.html";
+                }   else if (prediction[53].className == "혁거세거서간" && prediction[53].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/gusegan.html";
+                }   else if (prediction[54].className == "웅녀_여" && prediction[54].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/youne.html";
+                }   else if (prediction[55].className == "유화부인_여" && prediction[55].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/youhwa.html";
+                }   else if (prediction[56].className == "낙랑공주_여" && prediction[56].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/nangran.html";
+                }   else if (prediction[57].className == "치희" && prediction[57].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/chihee.html";
+                }   else if (prediction[58].className == "예소야_여" && prediction[58].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/yesoya.html";
+                }   else if (prediction[59].className == "선화공주_여" && prediction[59].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/sunhwa.html";
+                }   else if (prediction[60].className == "팔수부인_여" && prediction[60].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/palsu.html";
+                }   else if (prediction[61].className == "선덕여왕_여" && prediction[61].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/sunduck.html";
+                }   else if (prediction[62].className == "진덕여왕_여" && prediction[62].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/jinduk.html";
+                }   else if (prediction[63].className == "진성여왕_여" && prediction[63].
+                probability.toFixed(2) > 0.40) {
+                    window.location.href = "./page/jinsung.html";
+                } else {
+                    window.location.href = "./fail.html";
+                }       
+              }
+ 
+        </script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+            integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+            integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+            crossorigin="anonymous"
+        ></script>
+        <script>
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('.image-upload-wrap').hide();
+
+                        $('.file-upload-image').attr('src', e.target.result);
+                        $('.file-upload-content').show();
+
+                        $('.image-title').html(input.files[0].name);
+                    };
+
+                    reader.readAsDataURL(input.files[0]);
+                    init().then(()=>{
+                        console.log("hello");
+                        predict();
+  
+                    });
+                    
+                } else {
+                    removeUpload();
+                }
+            }
+
+            function removeUpload() {
+                $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+                $('.file-upload-content').hide();
+                $('.image-upload-wrap').show();
+            }
+            $('.image-upload-wrap').bind('dragover', function () {
+                $('.image-upload-wrap').addClass('image-dropping');
+            });
+            $('.image-upload-wrap').bind('dragleave', function () {
+                $('.image-upload-wrap').removeClass('image-dropping');
+            });
+
+        </script>
+    </body>
+    <!-- Copyright (c) 2022 by Aaron Vanston (https://codepen.io/aaronvanston/pen/yNYOXR)
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy,
+modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the 
+Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice
+shall be included in all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE 
+WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR 
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. -->
+</html>
